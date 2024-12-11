@@ -70,6 +70,10 @@ async function createDraftOrder(data) {
     }));
 
     const shippingLine = data.Shipping_details || {};
+    const shippingAdress={
+        name: data.Form_details?.name || '',
+        phone: data.Form_details?.phone || '',
+    };
 
     const draftOrderData = {
         draft_order: {
@@ -84,7 +88,8 @@ async function createDraftOrder(data) {
                 email: data.Form_details?.email || '', // Add email from form details
                 name: data.Form_details?.name || '',   // Add name from form details
                 phone: data.Form_details?.phone || ''  // Add phone from form details
-            }
+            },
+            email: data.Form_details?.email || '', // Add email from form details
         }
     };
 
